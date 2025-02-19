@@ -1,12 +1,12 @@
 #  Heart Attack Prediction Model
 
-## Project Title
-Building a Prediction Model that Identifies People Who Are at Risk of Heart Attack
+## Project Introduction
+This project focuses on building a heart attack risk prediction model that utilizes readily accessible and feasible features (physical condition, lifestyle, medical history, etc).
 
 ## Project Overview
 
 ### Problem Area
-- **Description of the Problem**: The project aims to leverage machine learning to evaluate individuals' risk of experiencing a heart attack, a critical health concern that affects many people. Approximately 805,000 people in the U.S. experience a heart attack each year, and awareness about specific risk factors could lead to timely medical intervention.
+- **Problem Description**: Heart attacks are a leading cause of death worldwide, incurring long-term health issues and substantial financial costs. Current risk assessment tools are limited by their reliance on blood test results and age range restrictions. This project aims to create a more user-friendly, accessible risk assessment tool using readily available features.
 - **Affected Groups**: Individuals with a family history of cardiac diseases, adults aged 40 and above, and health-conscious individuals concerned about their cardiovascular health are particularly affected.
 - **Benefits of Outcomes**: With a predictive model for heart attack risk, users can identify their risk more accurately, recognize symptoms, and take preventive measures, ultimately reducing the incidence of heart attacks and improving health outcomes.
 
