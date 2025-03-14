@@ -29,7 +29,6 @@ According to the CDC, approximately 805,000 people in the U.S. experience a hear
 
 
 ## Data Science Solution
-
 - **Solution Overview:**<br>
 The project aims to develop a classification model that predicts whether a user is at risk of having a heart attack. The model will utilize accessible features, including basic physical conditions, lifestyle and habits, medical history, and vaccination history.
 - **Existing Solutions Drawbacks:**<br>
@@ -41,45 +40,37 @@ The model is designed to be accessible anytime, anywhere, allowing users to prom
 
 
 ## Dataset Description
-
-- **Data Source Update:** <br>
-The previous data source was a Kaggle dataset where the owner transformed and generalized SAS data from the 2022 CDC BRFSS Survey. Upon detailed inspection, I discovered that the Kaggle dataset misrepresented several survey categories by categorizing 'Unknown' responses as missing values. This led to many entries being incorrectly labeled as missing when they actually contained valid information. Consequently, I decided to switch to the original 2022 BRFSS Survey Data to ensure accurate representation. Additionally, I expanded the dataset by combining it with the 2023 BRFSS Survey Data, effectively doubling its size.
 - **Source of the Dataset:** <br>
-The dataset for this project is sourced from the Centers for Disease Control and Prevention (CDC) Behavioral Risk Factor Surveillance System (BRFSS). This program conducts over 400,000 adult interviews each year through telephone surveys to gather comprehensive data on the health status and risk behaviors of U.S. residents.<br>
-For this project, we utilize two specific datasets:<br>
-1. [2022 BRFSS Survey Data and Documentation](https://www.cdc.gov/brfss/annual_data/annual_2022.html): This dataset includes information from the 2022 survey, detailing various health-related behaviors, conditions, and demographic factors.
-2. [2023 BRFSS Survey Data and Documentation](https://www.cdc.gov/brfss/annual_data/annual_2023.html): This dataset features the latest survey data from 2023, further enriching our analysis with updated health information.
-
-
+The dataset for this project is sourced from Kaggle, specifically the [Indicators of Heart Disease, (2022 UPDATE)](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease/data). The author provides two versions of the dataset: one with missing values and one without. For this project, I will utilize the version that includes missing values.<br>
+The dataset originates from the CDC’s [2022 BRFSS Survey Data and Documentation](https://www.cdc.gov/brfss/annual_data/annual_2022.html). As stated by the CDC, the Behavioral Risk Factor Surveillance System (BRFSS) conducts over 400,000 adult interviews each year through telephone surveys to gather data on the health status of U.S. residents. 
 - **Overview of Dataset:** <br>
-The 2022 BFRSS Survey dataset includes 445,132 observations and the 2023 BFRSS Survey dataset includes 433,323 observations.<br>
-Both datasets contain various features structured as follows:
+The dataset includes 445,132 observations and contains various features structured as follows:
   - **Target Variable**: `had_heart_attack` (categorical, binary)
-  - **Features**: 31 categorical variables, and 6 numerical variables
+  - **Features**: 33 categorical variables, and 6 numerical variables
 
 ## Data Dictionary
 The values within each variable reflect the respondents' answers to the corresponding questions.
 
 ### Field of Interest
 | Variable                     | Description                                         | Data Type     |
-|:----------------------------|:---------------------------------------------------|:-------------|
+|:----------------------------:|:---------------------------------------------------:|:-------------:|
 | `had_heart_attack`           | (Ever told) you had a heart attack? | Categorical   |
 
-#### Interviewee's Basic Information
+### Interviewee's Basic Information
 | Variable                     | Description                                         | Data Type     |
-|:----------------------------|:---------------------------------------------------|:-------------|
-| `year`    | Year which observation was recorded                             | Numeric   |
+|:----------------------------:|:---------------------------------------------------:|:-------------:|
 | `sex`                        | Sex of respondent                                   | Categorical   |
 | `race_ethnicity_category`    | Race/ethnicity category                             | Categorical   |
 | `age_category`               | Age category                                       | Categorical   |
 | `state`                      | States in U.S. where respondent resides            | Categorical   |
-| `height`          | Reported height in meters                           | Numeric       |
-| `weight`       | Reported weight in kilograms                        | Numeric       |
+| `height_in_meters`          | Reported height in meters                           | Numeric       |
+| `weight_in_kilograms`       | Reported weight in kilograms                        | Numeric       |
 | `bmi`                        | Body Mass Index                                     | Numeric       |
 
-#### Health and Lifestyle Information
+### Health and Lifestyle Information
 | Variable                     | Description                                         | Data Type     |
-|:----------------------------|:---------------------------------------------------|:-------------|
+|:----------------------------:|:---------------------------------------------------:|:-------------:|
+| `sleep_hours`               | Average sleep hours in a 24-hour period            | Numeric       |
 | `alcohol_drinkers`          | Adults who reported at least one drink in 30 days | Categorical   |
 | `general_health`            | Respondent's general health condition                | Categorical   |
 | `smoker_status`             | Respondent's smoking status                         | Categorical   |
@@ -87,11 +78,10 @@ The values within each variable reflect the respondents' answers to the correspo
 | `physical_activities`       | Participation in physical activities in the past month              | Categorical   |
 | `physical_health_days`      | Poor physical health days in past 30 days         | Categorical   |
 | `mental_health_days`        | Poor mental health days in past 30 days           | Categorical   |
-| `stress_levels`        | How often does respondents feel stress in past 30 days         | Categorical   |
 
-#### Medical History:<br>
+### Medical History:<br>
 | Variable                     | Description                                         | Data Type     |
-|:----------------------------|:---------------------------------------------------|:-------------|
+|:----------------------------:|:---------------------------------------------------:|:-------------:|
 | `had_angina`                | (Ever told) had angina or coronary heart disease?  | Categorical   |
 | `had_stroke`                | (Ever told) had a stroke                           | Categorical   |
 | `had_asthma`                | (Ever told) had asthma                             | Categorical   |
@@ -107,20 +97,23 @@ The values within each variable reflect the respondents' answers to the correspo
 | `difficulty_concentrating`   | Difficulty concentrating due to physical or mental conditions | Categorical   |
 | `difficulty_dressing_bathing`| Difficulty dressing or bathing                      | Categorical   |
 | `difficulty_errands`        | Difficulty doing errands due to physical or mental conditions | Categorical   |
+| `removed_teeth`             | Permanent teeth removed due to decay or gum disease | Categorical   |
 
-#### Health Assessment Information
+### Health Assessment Information
 | Variable                     | Description                                         | Data Type     |
-|:----------------------------|:---------------------------------------------------|:-------------|
+|:----------------------------:|:---------------------------------------------------:|:-------------:|
 | `last_checkup_time`         | Time since last routine checkup                    | Categorical   |
 | `chest_scan`                | Have you ever had a CT or CAT scan of your chest? | Categorical   |
+| `hiv_testing`               | Adults who have ever been tested for HIV           | Categorical   |
+| `covid_pos`                 | Ever told you tested positive for COVID-19        | Categorical   |
 
-#### Vaccination and Drug Use
+### Vaccination and Drug Use
 | Variable                     | Description                                         | Data Type     |
-|:----------------------------|:---------------------------------------------------|:-------------|
-| `flu_vax`           | Received flu vaccine in the past 12 months         | Categorical   |
-| `tetanus_vax`      | Received a tetanus shot in the past 10 years       | Categorical   |
-| `pneumo_vax`           | Ever had a pneumonia shot                           | Categorical   |
-
+|:----------------------------:|:---------------------------------------------------:|:-------------:|
+| `flu_vax_last_12`           | Received flu vaccine in the past 12 months         | Categorical   |
+| `tetanus_last_10_tdap`      | Received a tetanus shot in the past 10 years       | Categorical   |
+| `pneumo_vax_ever`           | Ever had a pneumonia shot                           | Categorical   |
+| `high_risk_last_year`       | Injected any non-prescribed drugs in the past year? | Categorical   |
 
 
 
