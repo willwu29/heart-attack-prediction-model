@@ -15,14 +15,20 @@ This project aims to build a heart attack risk prediction model that utilizes ac
 
 ## References to Analysis
 For those who wish to deepen their understanding of the processes and findings in Exploratory Data Analysis, Modeling, and Evaluation, please refer to the links below for direct access to Jupyter Notebooks
-1. [Data Import Preliminary Preprocessing Preliminary EDA]()
+1. [introduction_data_import_cleaning_heart_attack_prediction_book1](notebooks/introduction_data_import_cleaning_heart_attack_prediction_book1.ipynb)
+2. [EDA_cleaning_stage2_heart_attack_prediction_book2](notebooks/EDA_cleaning_stage2_heart_attack_prediction_book2.ipynb)
+3. [feature_engineering_baseline_modeling_book3](notebooks/feature_engineering_baseline_modeling_book3.ipynb)
+
+Appendix: 
+1. [Appendix_data_extraction_transformation_2022_BFRSS_survey](notebooks/Appendix_data_extraction_transformation_2022_BFRSS_survey.ipynb)
+2. [Appendix_data_extraction_transformation_2023_BFRSS_survey](notebooks/Appendix_data_extraction_transformation_2023_BFRSS_survey.ipynb)
 
 ## Project Overview
 - **Motivation:**<br>
- My interest in this project is deeply personal; having lost my uncle to cardiac arrest and witnessing family members affected by cardiac disease, I often feel anxious about my own risk of having a heart attack, especially during times of high stress, lack of sleep, or insufficient exercise. This personal experience drives my eagerness to build a model that can assess the risk of heart attacks and 
+My interest in this project is deeply personal; having lost my uncle to cardiac arrest and witnessing family members affected by cardiac disease, I often feel anxious about my own risk of having a heart attack, especially during times of high stress, lack of sleep, or insufficient exercise. This experience drives my eagerness to develop a model that can identify individuals at risk of heart attacks, thereby enabling proactive health management.
 
 - **Problem Description:** <br>
-Heart attacks are a leading cause of death worldwide, incurring long-term health issues and substantial financial costs. Current risk assessment tools are limited by their reliance on blood test results and restrictions such as user's age. This project aims to create a more user-friendly, accessible heart attack prediction model using readily available features.
+Heart attacks are a leading cause of death worldwide, resulting in long-term health issues and substantial financial costs. Current risk assessment tools are limited by their reliance on blood test results and constraints such as the user’s age, which restricts the opportunity to identify individuals at risk of having a heart attack. This project aims to create a more user-friendly and accessible heart attack risk assessment model using readily available features.
 
 - **Affected Groups:** <br>
 According to the CDC, approximately 805,000 people in the U.S. experience a heart attack each year, translating to someone suffering a heart attack every 40 seconds. This number underscores a staggering reality: many more people could be suffering from heart attacks when considering global population and undiagnosed cases. Common signs include chest discomfort, shortness of breath, upper body discomfort, and light-headedness. Symptoms can be subtle, particularly in women, who may experience non-painful signs such as fatigue or nausea, which can lead to delays in seeking emergency care. Therefore, it is crucial for individuals to be aware of their heart attack risk and stay vigilant for any relevant symptoms.
@@ -31,19 +37,21 @@ According to the CDC, approximately 805,000 people in the U.S. experience a hear
 ## Data Science Solution
 
 - **Solution Overview:**<br>
-The project aims to develop a classification model that predicts whether a user is at risk of having a heart attack. The model will utilize accessible features, including basic physical conditions, lifestyle and habits, medical history, and vaccination history.
+The project aims to develop an early detection model that identifies whether a user is at risk of having a heart attack. The model will utilize accessible features, including basic physical conditions, lifestyle habits, medical history, and vaccination history.
 - **Existing Solutions Drawbacks:**<br>
 Multiple approaches have been developed to assist healthcare providers in assessing the risk of cardiovascular disease. Atherosclerotic Cardiovascular Disease [(ASCVD) Risk Calculator](https://tools.acc.org/ascvd-risk-estimator-plus/#!/calculate/estimate/) assesses the chances of a person aged 40 to 79 developing heart disease over the next 10 years. Similarly, [The American Heart Association Prevent Online Calculator](https://professional.heart.org/en/guidelines-and-statements/prevent-calculator) assesses the risk of heart failure for users aged 30 to 79.<br>
-However, these models impose age restrictions, preventing users under 30 or over 80 from accessing them, and they require specific information such as HDL cholesterol levels, which can only be obtained through blood tests. An interesting finding during the exploratory data analysis (EDA) process is that age is positively correlated with the risk of heart attack; in fact, individuals aged 80 and above have the highest likelihood of experiencing a heart attack among all age groups. 
+However, these models impose age restrictions, preventing individuals under 30 or over 80 from accessing them, and they require specific information, such as HDL cholesterol levels, which can only be obtained through blood tests, making these calculators not readily accessible tools.<br> 
+One interesting finding during the exploratory data analysis is that age is exponentially correlated with the risk of heart attack; in fact, individuals aged 80 and above have the highest likelihood of experiencing a heart attack among all age groups. Consequently, the most vulnerable population lacks access to the most needed early detection model, emphasizing the necessity of this project.
+
+ - **Machine Learning Solutions:** <br>
+This project will employ various machine learning classifiers to identify individuals at risk of having a heart attack. The classification model will make binary predictions ('Yes'/'No) regarding whether the user is likely to face a heart attack.
 
 - **Expected Outcomes and Impact:** <br>
-The model is designed to be accessible anytime, anywhere, allowing users to promptly identify their risk of heart attacks. This increased awareness of heart attack symptoms could lead to quicker responses during emergencies, ultimately saving lives. Even a modest reduction in heart attack incidents, such as 1%, could help approximately 8,050 individuals avoid experiencing a heart attack. With the average healthcare costs associated with heart attacks estimated at over $20,000,this could result in annual savings of approximately $161 million.
+The model is designed to be accessible anytime, anywhere, allowing users to promptly identify their risk of heart attacks. Increased awareness of heart attack symptoms could lead to quicker responses during emergencies, ultimately saving lives. Even a modest reduction in heart attack incidents, such as 1%, could help over 8,000 individuals avoid experiencing a heart attack. With the average healthcare costs associated with heart attacks estimated at over $20,000, this could result in annual savings of approximately $161 million.
 
 
 ## Dataset Description
 
-- **Data Source Update:** <br>
-The previous data source was a Kaggle dataset where the owner transformed and generalized SAS data from the 2022 CDC BRFSS Survey. Upon detailed inspection, I discovered that the Kaggle dataset misrepresented several survey categories by categorizing 'Unknown' responses as missing values. This led to many entries being incorrectly labeled as missing when they actually contained valid information. Consequently, I decided to switch to the original 2022 BRFSS Survey Data to ensure accurate representation. Additionally, I expanded the dataset by combining it with the 2023 BRFSS Survey Data, effectively doubling its size.
 - **Source of the Dataset:** <br>
 The dataset for this project is sourced from the Centers for Disease Control and Prevention (CDC) Behavioral Risk Factor Surveillance System (BRFSS). This program conducts over 400,000 adult interviews each year through telephone surveys to gather comprehensive data on the health status and risk behaviors of U.S. residents.<br>
 For this project, we utilize two specific datasets:<br>
