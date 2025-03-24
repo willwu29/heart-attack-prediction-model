@@ -1,4 +1,4 @@
-  ![Heart Attack Prediction Model](src/HeartAttackPredictionModelGif.gif)
+  ![Heart Attack Prediction Model](docs/figures/HeartAttackPredictionModelGif.gif)
 
 ## Project Introduction
 
@@ -9,6 +9,9 @@ This project aims to build a heart attack risk prediction model that utilizes ac
 - [References to Analysis](#references-to-analysis)
 - [Project Overview](#project-overview)
 - [Data Science Solutions](#data-science-solutions)
+- [Metrics of Success](#metrics-of-success)
+- [Project Organization](#project-organization)
+- [Project Flowchart](#project-flowchart)
 - [Dataset Description](#dataset-description)
 - [Data Dictionary](#data-dictionary)
 
@@ -48,6 +51,88 @@ This project will employ various machine learning classifiers to identify indivi
 
 - **Expected Outcomes and Impact:** <br>
 The model is designed to be accessible anytime, anywhere, allowing users to promptly identify their risk of heart attacks. Increased awareness of heart attack symptoms could lead to quicker responses during emergencies, ultimately saving lives. Even a modest reduction in heart attack incidents, such as 1%, could help over 8,000 individuals avoid experiencing a heart attack. With the average healthcare costs associated with heart attacks estimated at over $20,000, this could result in annual savings of approximately $161 million.
+
+
+
+## Metrics of Success
+- **Business Metrics:**<br>
+1. The goal of this project is to develop a model that accurately identifies individuals at risk of a heart attack.<br>
+2. Research indicates that approximately 80-90% of heart attacks are linked to modifiable risk factors, including tobacco use, physical inactivity, and obesity. This leaves 10-20% of heart attacks attributed to genetics or other difficult-to-measure variables such as psychosocial stress.
+
+- **Imbalanced Data Consideration:**<br>
+Due to the severely imbalanced distribution of the target variable (94.7% negative vs. 5.3% positive), accuracy is not a suitable metric. A classifier predicting all instances as negative would achieve 94.7% accuracy but fail to detect any positive cases.
+
+- **Modeling Metrics:**<br>
+1. The **primary objective** is to achieve a **high recall score of 0.8-0.9**, which is crucial for timely identification of true positive cases.
+2. A **low false positive rate** is the **secondary goal**. High recall may lead to many false positives, incorrectly flagging low-risk individuals as high-risk, resulting in unnecessary medical interventions and compromising the model’s reliability.
+
+
+
+## Project Organization
+
+
+**Repository :**<br>
+* `data` 
+    - contains link to the datasource (stored in a publicly accessible cloud storage)
+    - saved copy of raw and processed data as long as those are not too large 
+
+* `model`
+    - `joblib` dump of final model(s)
+
+* `notebooks`
+    - contains all final notebooks involved in the project
+
+* `docs`
+    - Final report, presentations, variable descriptions, and relevant documentation for README and presentations
+
+* `references`
+    - Papers and tutorials utilized in the projectPapers and tutorials utilized in the project
+
+* `src`
+    - Contains the project source code (refactored from the notebooks)
+
+* `.gitignore`
+    - Part of Git, includes files and folders to be ignored by Git version control
+
+* `environment.yml`
+    - Conda environment specification
+
+* `README.md`
+    - Project landing page (this page)
+
+* `LICENSE`
+    - Project license
+
+
+## Project Flowchart
+![Project Flowchart](docs/figures/project_flowchart.png)
+
+This project is divided into five main steps:
+- **Data Collection:** <br>
+  1. Data Extraction: Collect and transform multiple datasets, preprocessing the raw data to ensure it can be effectively imported and analyzed.
+  2. Data integration: Combine multiple datasets into a single raw file.
+- **Data Cleaning:** <br>
+  1. Conduct data quality checks.
+  1. Rename columns and categories.
+  2. Address missing values: Multiple rounds of cleaning and imputation to handle missing data effectively.
+  3. Remove duplicate values.
+- **Exploratory Data Analysis (EDA):** <br>
+  1. Analyze the target variable.
+  2. Examine features and their correlation with the probability of having a heart attack.
+  3. Investigate missing values, providing insights into their causes and appropriate imputation methods.
+- **Feature Engineering:** <br>
+  1. Feature selection.
+  2. Feature transformation: Bin numerical features into categories and normalize non-normal features.
+  3. Apply One-Hot Encoding.
+  4. Perform feature scaling.
+  5. Address class imbalance through upsampling and downsampling.
+  6. Apply dimensionality reduction techniques, such as PCA.
+- **Modeling and Evaluation:** <br>
+  1. Baseline modeling: Train baseline models including Logistic Regression, Naive Bayes, Decision Tree, Randorm Forest, XGBoost, Neural Network
+  2. Baseline model evalution: Evaluate baseline models with various metrics, including recall and false positive rate, etc. Compare performance of different models, and generate insights for additional feature engineering.
+  3. Advanced modeling: Train models after additional feature engineering, perform hyperparameter tuning and grid search for optimization. Create customized loss function for Neural network model.
+  4. Final model evaluation: Perform in-depth evaluation of the final model, analyze model limitations if exhibited.
+
 
 
 ## Dataset Description
@@ -128,6 +213,8 @@ The values within each variable reflect the respondents' answers to the correspo
 | `flu_vax`           | Received flu vaccine in the past 12 months         | Categorical   |
 | `tetanus_vax`      | Received a tetanus shot in the past 10 years       | Categorical   |
 | `pneumo_vax`           | Ever had a pneumonia shot                           | Categorical   |
+
+
 
 
 
