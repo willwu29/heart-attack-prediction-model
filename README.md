@@ -2,7 +2,7 @@
 
 ## Project Introduction
 
-This project aims to build a heart attack risk prediction model that utilizes accessible and feasible features (physical condition, lifestyle, medical history, etc).
+This project aims to develop an early detection system that predicts the risk of heart attacks using accessible and practical features, such as age, lifestyle, and medical history.
 
 ## Table of Contents
 
@@ -18,9 +18,9 @@ This project aims to build a heart attack risk prediction model that utilizes ac
 
 ## References to Analysis
 For those who wish to deepen their understanding of the processes and findings in Exploratory Data Analysis, Modeling, and Evaluation, please refer to the links below for direct access to Jupyter Notebooks
-1. [introduction_data_import_cleaning_heart_attack_prediction_book1](notebooks/introduction_data_import_cleaning_heart_attack_prediction_book1.ipynb)
-2. [EDA_cleaning_stage2_heart_attack_prediction_book2](notebooks/EDA_cleaning_stage2_heart_attack_prediction_book2.ipynb)
-3. [feature_engineering_baseline_modeling_book3](notebooks/feature_engineering_baseline_modeling_book3.ipynb)
+1. [book1_introduction_data_import_cleaning_heart_attack_prediction](notebooks/book1_introduction_data_import_cleaning_heart_attack_prediction.ipynb)
+2. [book2_EDA_cleaning_stage2_heart_attack_prediction_book2](notebooks/book2_EDA_cleaning_stage2_heart_attack_prediction_book2.ipynb)
+3. [book3_feature_engineering_baseline_modeling](notebooks/book3_feature_engineering_baseline_modeling.ipynb)
 
 Appendix: 
 1. [Appendix_data_extraction_transformation_2022_BFRSS_survey](notebooks/Appendix_data_extraction_transformation_2022_BFRSS_survey.ipynb)
