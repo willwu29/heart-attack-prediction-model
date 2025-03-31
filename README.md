@@ -21,6 +21,7 @@ For those who wish to deepen their understanding of the processes and findings i
 1. [book1_introduction_data_import_cleaning_heart_attack_prediction](notebooks/book1_introduction_data_import_cleaning_heart_attack_prediction.ipynb)
 2. [book2_EDA_cleaning_stage2_heart_attack_prediction_book2](notebooks/book2_EDA_cleaning_stage2_heart_attack_prediction_book2.ipynb)
 3. [book3_feature_engineering_baseline_modeling](notebooks/book3_feature_engineering_baseline_modeling.ipynb)
+4. [book4_hyperparameter_tuning_advanced_modeling.ipynb](notebooks/book4_hyperparameter_tuning_advanced_modeling.ipynb)
 
 Appendix: 
 1. [Appendix_data_extraction_transformation_2022_BFRSS_survey](notebooks/Appendix_data_extraction_transformation_2022_BFRSS_survey.ipynb)
