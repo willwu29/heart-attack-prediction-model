@@ -187,5 +187,34 @@ class ModelEvaluator:
         plt.xlabel('False Positive Rate')
         plt.ylabel('True Positive Rate / Recall')
         plt.legend()
+        plt.show()
 
-            
+    
+    def make_predictions(self, X_train, X_test, thresholds=0.5):
+        """
+        Generates predictions for training and test datasets based on the thredhold, the default threhold
+        is set at 0.5.
+
+        Args:
+            X_train (array): Feature set for the training data.
+            X_test (array): Feature set for the test data.
+            thresholds (float): The threshold for classifying positive predictions.
+
+        Returns:
+            tuple: A tuple containing:
+                - y_pred_train (array): Predicted labels for the training data.
+                - y_pred_test (array): Predicted labels for the test data.
+        """
+        # Generate probability predictions
+        if self.is_neural_network:
+            y_pred_proba_train = self.model.predict(X_train)
+            y_pred_proba_test = self.model.predict(X_test)
+        else:
+            y_pred_proba_train = self.model.predict_proba(X_train)[:, 1]
+            y_pred_proba_test = self.model.predict_proba(X_test)[:, 1]
+
+        # Hard predictions
+        y_pred_train = np.where(y_pred_proba_train > thresholds, 1, 0).flatten()
+        y_pred_test = np.where(y_pred_proba_test > thresholds, 1, 0).flatten()
+
+        return y_pred_train, y_pred_test
