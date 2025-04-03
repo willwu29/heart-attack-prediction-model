@@ -1,7 +1,0 @@
-model,thresholds
-logistic_regression,0.4487375824498949
-naive_bayes,0.2715180655924318
-decision_tree,0.44404332129963897
-random_forest,0.4790932981253925
-xgboost,0.47650209069252014
-neural_network,0.474639892578125
