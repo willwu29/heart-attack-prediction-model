@@ -56,6 +56,10 @@ This project will employ various machine learning classifiers to identify indivi
 The model is designed to be accessible anytime, anywhere, allowing users to promptly identify their risk of heart attacks. Increased awareness of heart attack symptoms could lead to quicker responses during emergencies, ultimately saving lives. Even a modest reduction in heart attack incidents, such as 1%, could help over 8,000 individuals avoid experiencing a heart attack. With the average healthcare costs associated with heart attacks estimated at over $20,000, this could result in annual savings of approximately $161 million.
 
 
+## Application
+To achieve the objectives of this project, I developed an app where users can complete the relevant questionnaires and receive the model’s predictions (indicating whether there is a risk of heart attack). Additionally, I provided links to two mainstream heart disease calculators for users to perform cross-validation. <br>
+
+Click here to access the app: [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-heart-attack-prediction.streamlit.app/)
 
 ## Metrics of Success
 - **Business Metrics:**<br>
